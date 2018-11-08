@@ -9,6 +9,15 @@
   body * {
     margin: 0;
   }
+
+  button {
+    width: 30%;
+    height: 10%;
+    background-color: {{color3}};
+    color: {{color1}};
+    font-size: 20px;
+    border-radius: 20px;
+  }
 </style>
 
 <head>
@@ -21,6 +30,7 @@
   <br />
     <canvas id="netGraph" width="650px" height="450px" style="background-color: {{color2}}; border: 10px solid {{color2}}; border-radius: 5px;"></canvas>
     <h2>Download Rate (kbps)</h2>
+    <button onClick="location.reload(true);">REFRESH</button>
   </div>
 </body>
 
