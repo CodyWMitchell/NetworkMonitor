@@ -1,0 +1,56 @@
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Mali');
+  body, body * {
+    background-color: {{color1}};
+    font-family: Mali;
+    color: {{color2}};
+  }
+
+  body * {
+    margin: 0;
+  }
+</style>
+
+<head>
+  <title>It worked!</title>
+</head>
+<body>
+  <div style="text-align: center;">
+  <h1 style="color: {{color3}}">Network Data</h1>
+  <h2>{{networkName}}</h2>
+  <br />
+    <canvas id="netGraph" width="650px" height="450px" style="background-color: {{color2}}; border: 10px solid {{color2}}; border-radius: 5px;"></canvas>
+    <h2>Download Rate (kbps)</h2>
+  </div>
+</body>
+
+<script>
+  var data = {{data}}; // The data to be drawn
+
+  var canvas = document.getElementById("netGraph"); // Use the canvas
+  var graphics = canvas.getContext("2d");
+  graphics.strokeStyle="{{color1}}"
+  graphics.lineWidth=5;
+
+  graphics.beginPath(); // Start drawing
+  for (var i=0; i<data.length; i++) { // For each item of data
+    graphics.lineWidth = 3;
+    graphics.lineTo(i*(600/(data.length-1))+50,400-data[i]); // Draw across the canvas
+  }
+  graphics.stroke();
+
+  graphics.beginPath(); // Start drawing axes
+  graphics.strokeStyle="{{color3}}";
+  graphics.moveTo(50,400);
+  graphics.lineTo(50,0);
+  graphics.moveTo(50,400);
+  graphics.lineTo(650,400)
+  graphics.stroke();
+
+  graphics.font="20px Mali";
+  graphics.fillStyle="{{color3}}";
+  for (let i=50; i<=400; i=i+50) {
+    graphics.fillText(400-i,0,i);
+  }
+
+</script>
