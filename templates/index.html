@@ -36,6 +36,7 @@
 
 <script>
   var data = {{data}}; // The data to be drawn
+  var networkScale = 10.0;
 
   var canvas = document.getElementById("netGraph"); // Use the canvas
   var graphics = canvas.getContext("2d");
@@ -45,7 +46,7 @@
   graphics.beginPath(); // Start drawing
   for (var i=0; i<data.length; i++) { // For each item of data
     graphics.lineWidth = 3;
-    graphics.lineTo(i*(600/(data.length-1))+50,400-data[i]); // Draw across the canvas
+    graphics.lineTo(i*(600/(data.length-1))+50,(400-(data[i]/networkScale))); // Draw across the canvas
   }
   graphics.stroke();
 
@@ -60,7 +61,7 @@
   graphics.font="20px Mali";
   graphics.fillStyle="{{color3}}";
   for (let i=50; i<=400; i=i+50) {
-    graphics.fillText(400-i,0,i);
+    graphics.fillText((400-i)*networkScale,0,i);
   }
 
 </script>
