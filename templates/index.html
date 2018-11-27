@@ -35,8 +35,9 @@
 </body>
 
 <script>
+  function updateCanvas() {
   var data = {{data}}; // The data to be drawn
-  var networkScale = 10.0;
+  var networkScale = 20.0;
 
   var canvas = document.getElementById("netGraph"); // Use the canvas
   var graphics = canvas.getContext("2d");
@@ -63,5 +64,7 @@
   for (let i=50; i<=400; i=i+50) {
     graphics.fillText((400-i)*networkScale,0,i);
   }
+  }
 
+  updateCanvas();
 </script>

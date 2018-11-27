@@ -1,12 +1,17 @@
 from flask import Flask
 from flask import render_template
+import threading
 from networkCheck import *
 import random, subprocess
 app = Flask(__name__)
 
+print("Creating a thread:",threading.activeCount())
+thread = threading.Thread(target=update)
+thread.daemon = True
+thread.start()
+
 @app.route('/')
 def hello_world():
-    update()
 
     try:
         sp = subprocess.check_output('iwgetid')
