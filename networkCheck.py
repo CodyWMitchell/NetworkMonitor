@@ -13,5 +13,5 @@ def update():
     average = 0
     for i in range (amount_of_tests):
         average += downloadsp()
-    print (average)
-    chartData.append(average)
+    print (average/amount_of_tests)
+    chartData.append(average/amount_of_tests)
