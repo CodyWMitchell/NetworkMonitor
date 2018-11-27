@@ -1,7 +1,7 @@
 import requests, time
 from sys import getsizeof
 
-def main():
+def downloadsp():
     t=time.time()
     r = requests.get('http://speedtest.ftp.otenet.gr/files/test1Mb.db')
     t=time.time()-t
